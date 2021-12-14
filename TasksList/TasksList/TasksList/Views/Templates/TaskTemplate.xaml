@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="TasksList.Views.Templates.TaskTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TasksList.Models"
+    x:DataType="models:Task">
+    <ContentView.Content>
+        <Grid
+            x:Name="GridTask"
+            AutomationId="GridTask"
+            ColumnDefinitions="Auto, *"
+            RowDefinitions="Auto">
+            <Frame
+                x:Name="FrameTask"
+                BackgroundColor="White"
+                CornerRadius="10"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill" />
+            <Label
+                x:Name="LabelTaskDescription"
+                AutomationId="LabelTaskDescription"
+                Text="{Binding Description}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

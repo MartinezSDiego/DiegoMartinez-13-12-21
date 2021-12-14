@@ -1,0 +1,6 @@
+﻿*.suo
+*.user
+[Pp]ackages
+[Bb]in/
+[Oo]bj/
+Resource.designer.cs
