@@ -25,7 +25,7 @@
     <EmbeddedResource Update="Styles\GlobalStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Styles\TasksPageStyles.xaml">
+    <EmbeddedResource Update="Styles\TaskPageStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TaskItemPage.xaml">

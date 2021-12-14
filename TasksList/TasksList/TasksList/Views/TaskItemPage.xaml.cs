@@ -26,6 +26,11 @@ namespace TasksList.Views
         {
             if (BindingContext is TaskItem item)
             {
+                if (string.IsNullOrEmpty(item.Description) || string.IsNullOrWhiteSpace(item.Description))
+                {
+                    _ = DisplayAlert("Description", "Please fill the description", "Ok");
+                    return;
+                }
                 DatabaseTasks database = await DatabaseTasks.Instance;
                 await database.SaveItemAsync(item);
                 await Navigation.PopAsync();

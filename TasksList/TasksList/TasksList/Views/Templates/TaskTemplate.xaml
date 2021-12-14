@@ -66,6 +66,7 @@
                 HorizontalOptions="Fill"
                 HorizontalTextAlignment="Start"
                 Text="{Binding Description}"
+                TextColor="Black"
                 TextDecorations="None"
                 VerticalOptions="Fill"
                 VerticalTextAlignment="Center" />

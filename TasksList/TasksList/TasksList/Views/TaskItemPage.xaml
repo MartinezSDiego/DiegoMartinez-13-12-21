@@ -6,6 +6,10 @@
     xmlns:models="clr-namespace:TasksList.Models"
     Title="Task Information"
     x:DataType="models:TaskItem">
+    <ContentPage.Resources>
+        <ResourceDictionary
+            Source="../../Styles/TaskPageStyles.xaml" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid
             x:Name="GridTaskItem"
@@ -20,34 +24,43 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 AutomationId="LabelDescription"
-                Text="Description" />
+                Text="Description"
+                TextColor="Black" />
             <Entry
                 x:Name="EntryDescription"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 AutomationId="EntryDescription"
-                Text="{Binding Description}" />
+                Placeholder="Type the description"
+                PlaceholderColor="Gray"
+                Text="{Binding Description}"
+                TextColor="Black" />
             <Label
                 x:Name="LabelDone"
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 AutomationId="LabelDone"
-                Text="Done" />
+                Text="Done"
+                TextColor="Black" />
             <Switch
                 x:Name="SwitchDone"
                 Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 AutomationId="SwitchDone"
-                IsToggled="{Binding Done}" />
+                HorizontalOptions="Start"
+                IsToggled="{Binding Done}"
+                OnColor="Green"
+                ThumbColor="Gray" />
             <Button
                 x:Name="ButtonSave"
                 Grid.Row="4"
                 Grid.Column="0"
                 AutomationId="ButtonSave"
                 Clicked="SaveClicked"
+                Style="{StaticResource ActionButton}"
                 Text="Save" />
             <Button
                 x:Name="ButtonDelete"
@@ -55,6 +68,7 @@
                 Grid.Column="1"
                 AutomationId="ButtonDelete"
                 Clicked="Deletelicked"
+                Style="{StaticResource ActionButton}"
                 Text="Delete" />
         </Grid>
     </ContentPage.Content>
