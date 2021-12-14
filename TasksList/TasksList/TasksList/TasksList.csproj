@@ -13,7 +13,12 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\TaskItemPage.xaml.cs">
+      <DependentUpon>TaskItemPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +28,7 @@
     <EmbeddedResource Update="Styles\TasksPageStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewTaskPage.xaml">
+    <EmbeddedResource Update="Views\TaskItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TasksPage.xaml">

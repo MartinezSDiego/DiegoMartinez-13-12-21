@@ -16,4 +16,9 @@
         <Setter Property="RowSpacing" Value="0" />
         <Setter Property="ColumnSpacing" Value="0" />
     </Style>
+
+    <Color
+        x:Key="GrayLight">
+        #f7f7f7
+    </Color>
 </ResourceDictionary>

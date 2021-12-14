@@ -3,24 +3,72 @@
     x:Class="TasksList.Views.Templates.TaskTemplate"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:TasksList.Helpers"
     xmlns:models="clr-namespace:TasksList.Models"
-    x:DataType="models:Task">
+    x:DataType="models:TaskItem">
     <ContentView.Content>
         <Grid
             x:Name="GridTask"
+            Margin="20,5,20,5"
             AutomationId="GridTask"
             ColumnDefinitions="Auto, *"
-            RowDefinitions="Auto">
+            HorizontalOptions="Fill"
+            RowDefinitions="Auto"
+            VerticalOptions="Fill">
             <Frame
                 x:Name="FrameTask"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 BackgroundColor="White"
+                BorderColor="LightGray"
                 CornerRadius="10"
                 HorizontalOptions="Fill"
                 VerticalOptions="Fill" />
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="10,0,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{StaticResource FontAwesomeRegular}"
+                        Glyph="{x:Static helpers:FontAwesomeIcons.Circle}"
+                        Size="Large"
+                        Color="Black" />
+                </Image.Source>
+                <Image.Triggers>
+                    <DataTrigger
+                        Binding="{Binding Done}"
+                        TargetType="Image"
+                        Value="True">
+                        <Setter Property="Source">
+                            <Setter.Value>
+                                <FontImageSource
+                                    FontFamily="{StaticResource FontAwesomeSolid}"
+                                    Glyph="{x:Static helpers:FontAwesomeIcons.CheckCircle}"
+                                    Size="Large"
+                                    Color="Green" />
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+
             <Label
                 x:Name="LabelTaskDescription"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10"
                 AutomationId="LabelTaskDescription"
-                Text="{Binding Description}" />
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Text="{Binding Description}"
+                TextDecorations="None"
+                VerticalOptions="Fill"
+                VerticalTextAlignment="Center" />
         </Grid>
     </ContentView.Content>
 </ContentView>

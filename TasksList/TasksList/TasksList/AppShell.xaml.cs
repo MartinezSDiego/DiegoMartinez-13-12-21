@@ -8,7 +8,7 @@ namespace TasksList
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(NewTaskPage), typeof(NewTaskPage));
+            Routing.RegisterRoute(nameof(TaskItemPage), typeof(TaskItemPage));
         }
     }
 }

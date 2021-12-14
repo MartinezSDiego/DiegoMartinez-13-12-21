@@ -3,18 +3,43 @@
     x:Class="TasksList.Views.TasksPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:TasksList.Helpers"
     xmlns:templates="clr-namespace:TasksList.Views.Templates"
+    xmlns:viewModels="clr-namespace:TasksList.ViewModels"
     Title="Tasks List">
+    <ContentPage.BindingContext>
+        <viewModels:TasksViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="PlusIconClicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    Glyph="{x:Static helpers:FontAwesomeIcons.PlusCircle}"
+                    Size="Large" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid
             x:Name="GridTaskPage"
             AutomationId="GridTaskPage"
             ColumnDefinitions="*"
             RowDefinitions="*">
-            <ListView>
+            <ListView
+                x:Name="ListTasks"
+                AutomationId="ListTasks"
+                BackgroundColor="{StaticResource GrayLight}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding TaskList}"
+                ItemTapped="TaskItemTapped"
+                SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <templates:TaskTemplate />
+                        <ViewCell>
+                            <templates:TaskTemplate />
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TasksList.Views.TaskItemPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TasksList.Models"
+    Title="Task Information"
+    x:DataType="models:TaskItem">
+    <ContentPage.Content>
+        <Grid
+            x:Name="GridTaskItem"
+            Margin="20,20,20,0"
+            AutomationId="GridTaskItem"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+            RowSpacing="10">
+            <Label
+                x:Name="LabelDescription"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutomationId="LabelDescription"
+                Text="Description" />
+            <Entry
+                x:Name="EntryDescription"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutomationId="EntryDescription"
+                Text="{Binding Description}" />
+            <Label
+                x:Name="LabelDone"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutomationId="LabelDone"
+                Text="Done" />
+            <Switch
+                x:Name="SwitchDone"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutomationId="SwitchDone"
+                IsToggled="{Binding Done}" />
+            <Button
+                x:Name="ButtonSave"
+                Grid.Row="4"
+                Grid.Column="0"
+                AutomationId="ButtonSave"
+                Clicked="SaveClicked"
+                Text="Save" />
+            <Button
+                x:Name="ButtonDelete"
+                Grid.Row="4"
+                Grid.Column="1"
+                AutomationId="ButtonDelete"
+                Clicked="Deletelicked"
+                Text="Delete" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
